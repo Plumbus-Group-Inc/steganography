@@ -5,16 +5,19 @@
 #include <filesystem>
 #include <vector>
 
+#include "common.hpp"
+
 namespace mmht {
 
 namespace fs = std::filesystem;
 
-class WAV {};
-
 class WAVLoader {
   WAVLoader(const fs::path &input);
-  std::uint64_t getFreq();
-  std::vector<std::uint32_t> getData();
+  Data getData();
+};
+
+class WAVSaver {
+  void save(const fs::path &path, const Data &data);
 };
 
 }
