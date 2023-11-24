@@ -1,28 +1,26 @@
 #ifndef __INCLUDE_ABSTRACT_HH__
 #define __INCLUDE_ABSTRACT_HH__
 
-#include <cstdint>
-#include <vector>
+#include <span>
 
-namespace sgg {
+#include "common.hpp"
+
+namespace mmht {
 
 class IEncoder {
 public:
-  virtual std::vector<std::uint32_t>
-  encode(const std::vector<std::uint32_t> &input,
-         const std::vector<std::uint8_t> &data) = 0;
+  virtual Data encode(const Data &input, std::span<std::byte> data) = 0;
 
   virtual ~IEncoder() = default;
 };
 
 class IDecoder {
 public:
-  virtual std::vector<std::uint8_t>
-  decode(const std::vector<std::uint32_t> &input) = 0;
+  virtual Data decode(const Data &input) = 0;
 
   virtual ~IDecoder() = default;
 };
 
-} // namespace sgg
+} // namespace mmht
 
 #endif // __INCLUDE_ABSTRACT_HH__

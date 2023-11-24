@@ -5,7 +5,7 @@
 #include <filesystem>
 #include <vector>
 
-namespace sgg {
+namespace mmht {
 
 namespace fs = std::filesystem;
 
