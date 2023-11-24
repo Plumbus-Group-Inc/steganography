@@ -3,8 +3,8 @@
 
 #include <cstdint>
 #include <filesystem>
-#include <vector>
 #include <memory>
+#include <vector>
 
 #include "common.hpp"
 
@@ -14,19 +14,19 @@ namespace fs = std::filesystem;
 
 class ILoader {
 public:
-    virtual ~ILoader() = 0;
-    virtual Data loadData() = 0;
+  virtual ~ILoader() = default;
+  virtual Data loadData() = 0;
 };
 
 class ISaver {
 public:
-    virtual ~ISaver() = 0;
-    virtual void saveData(Data const& data) = 0;
+  virtual ~ISaver() = default;
+  virtual void saveData(Data const &data) = 0;
 };
 
-std::unique_ptr<ILoader> CreateWAVLoader(fs::path const& path);
-std::unique_ptr<ISaver> CreateWAVSaver(fs::path const& path);
+std::unique_ptr<ILoader> CreateWAVLoader(fs::path const &path);
+std::unique_ptr<ISaver> CreateWAVSaver(fs::path const &path);
 
-}
+} // namespace mmht
 
 #endif // __INCLUDE_WAV_HH__
