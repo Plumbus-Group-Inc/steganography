@@ -52,19 +52,17 @@ int main(int argc, char **argv) {
   auto msg = readBinaryFile(msgPath);
   auto encoder = mmht::CreateLSBEncoder();
 
-  std::cout << "input" << std::endl;
-  for (auto sample : input.left) {
-    std::cout << std::hex << *reinterpret_cast<std::uint32_t *>(&sample)
-              << std::dec << std::endl;
-  }
+  // std::cout << "input" << std::endl;
+  // for (auto sample : input.left) {
+  //   std::cout << std::hex << sample << std::dec << std::endl;
+  // }
 
   auto output = encoder->encode(input, msg);
 
-  std::cerr << "output" << std::endl;
-  for (auto sample : output.left) {
-    std::cerr << std::hex << *reinterpret_cast<std::uint32_t *>(&sample)
-              << std::dec << std::endl;
-  }
+  // std::cerr << "output" << std::endl;
+  // for (auto sample : output.left) {
+  //   std::cerr << std::hex << sample << std::dec << std::endl;
+  // }
 
   auto saver = mmht::CreateWAVSaver(outputPath);
   saver->saveData(output);

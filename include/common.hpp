@@ -11,8 +11,8 @@ struct Data final {
   std::size_t channels = 0;
   std::size_t depth = 0;
 
-  std::vector<float> left;
-  std::vector<float> right;
+  std::vector<uint32_t> left;
+  std::vector<uint32_t> right;
 };
 
 }

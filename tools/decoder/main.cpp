@@ -29,6 +29,12 @@ int main(int argc, char **argv) {
   auto loader = mmht::CreateWAVLoader(inputPath);
   auto input = loader->loadData();
 
+  // std::cout << "input" << std::endl;
+  // for (auto sample : input.left) {
+  //   std::cout << std::hex << *reinterpret_cast<std::uint32_t *>(&sample)
+  //             << std::dec << std::endl;
+  // }
+
   auto decoder = mmht::CreateLSBDecoder();
   auto msg = decoder->decode(input);
 

@@ -1,7 +1,9 @@
-#include <AudioFile.h>
+#include <cstdint>
 #include <memory>
 #include <sstream>
 #include <stdexcept>
+
+#include <AudioFile.h>
 
 #include "wav.hpp"
 
@@ -13,7 +15,7 @@ public:
   Data loadData() override;
 
 private:
-  AudioFile<float> m_audioFile;
+  AudioFile<uint32_t> m_audioFile;
 };
 
 std::unique_ptr<ILoader> CreateWAVLoader(fs::path const &path) {
@@ -69,7 +71,7 @@ public:
 
 private:
   fs::path m_path;
-  AudioFile<float> m_audioFile;
+  AudioFile<uint32_t> m_audioFile;
 };
 
 std::unique_ptr<ISaver> CreateWAVSaver(fs::path const &path) {
